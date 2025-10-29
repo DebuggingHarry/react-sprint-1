@@ -1,0 +1,12 @@
+footer {
+  height: 50px;
+  display: grid;
+  place-items: center;
+  background: #ebebeb;
+}
+
+footer a {
+  font-size: 70%;
+  text-decoration: none;
+  color: #004e98;
+}
