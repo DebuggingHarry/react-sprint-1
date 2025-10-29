@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layouts/Layout.js";
 import Home from "./components/pages/Home.js";
+import MyTrials from "./components/pages/MyTrials.js";
 import PageNotFound from "./components/pages/404.js";
 import SignIn from "./components/pages/SignIn.js";
 import ContactUs from "./components/pages/ContactUs.js";
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="*" element={<PageNotFound />} />
           <Route path="/" element={<Home />} />
+          <Route path="/my-trials" element={<MyTrials />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/contact" element={<ContactUs />} />
         </Routes>

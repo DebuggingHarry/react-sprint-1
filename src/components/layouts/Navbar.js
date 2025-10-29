@@ -26,6 +26,11 @@ function Navbar() {
           Contact us
         </NavLink>
       </div>
+      <div className="navItem">
+        <NavLink to="/my-trials" className={getLinkStyle}>
+          My Trials
+        </NavLink>
+      </div>
     </nav>
   );
 }
