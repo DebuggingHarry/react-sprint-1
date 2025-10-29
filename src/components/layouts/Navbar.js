@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <nav>
       <div className="navItem">
-        <NavLink to="/" className={getLinkStyle} exact>
+        <NavLink to="/" className={getLinkStyle}>
           Home
         </NavLink>
       </div>
