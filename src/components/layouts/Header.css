@@ -9,10 +9,15 @@ header a img {
   width: 100px;
 }
 
+header a {
+  text-decoration: none;
+}
+
 header a h1 {
   color: #ebebeb;
   margin-left: 5px;
   font-size: 200%;
+  text-decoration: none;
 }
 
 header a:hover,
