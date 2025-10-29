@@ -1,0 +1,30 @@
+header {
+  color: white;
+  background: #004e98;
+  display: flex;
+}
+
+header a img {
+  margin: 10px 0px 10px 5px;
+  width: 100px;
+}
+
+header a h1 {
+  color: #ebebeb;
+  margin-left: 5px;
+  font-size: 200%;
+}
+
+header a:hover,
+header a:active {
+  color: #ebebeb;
+}
+
+header div.login {
+  flex: 1;
+  margin-right: 0.5rem;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
