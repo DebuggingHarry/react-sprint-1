@@ -49,7 +49,7 @@ function MyTrials() {
           {trials.map((trial) => (
             <Panel
               key={trial.trialId}
-              title={trial.trialName}
+              title={trial.trial_name}
               level={1}
             ></Panel>
           ))}
