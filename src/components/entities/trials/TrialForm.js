@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormItem from "../../UI/Form.js";
 import { ActionTray, Submit, Cancel } from "../../UI/Actions.js";
+import "./TrialForm.css";
 
 const emptyTrial = {
   trial_name: "",
@@ -86,6 +87,8 @@ export default function TrialForm({
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Debug: log the trial object being submitted
+    console.log("Submitting trial object:", JSON.parse(JSON.stringify(trial)));
     isValidTrial(trial) && onSubmit(trial) && onDismiss();
     setErrors({ ...errors });
   };
@@ -93,7 +96,7 @@ export default function TrialForm({
 
   // View -------------------------------------------------
   return (
-    <form>
+    <form className="trialForm">
       <FormItem
         label="Trial name"
         htmlFor="trial_name"

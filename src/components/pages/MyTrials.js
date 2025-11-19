@@ -3,6 +3,7 @@ import API from "../api/API.js";
 import TrialPanels from "../entities/trials/TrialPanels.js";
 import { ActionTray, Add } from "../UI/Actions.js";
 import TrialForm from "../entities/trials/TrialForm.js";
+import "./MyTrials.css";
 
 function MyTrials() {
   // Initialisation --------------------------------------

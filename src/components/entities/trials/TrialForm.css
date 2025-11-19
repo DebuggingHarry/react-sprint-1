@@ -1,0 +1,76 @@
+form.trialForm {
+  width: 100%;
+  min-width: 300px;
+  padding: 20px;
+  border: 1px solid LightGrey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form.trialForm .FormItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+form.trialForm .FormLabel {
+  font-weight: 600;
+}
+
+form.trialForm .FormAdvice {
+  color: grey;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+form.trialForm input,
+form.trialForm select,
+form.trialForm textarea {
+  display: block;
+  width: 100%;
+  padding: 3px;
+  margin: 1px 0;
+  font-size: 100%;
+  border-radius: 0px;
+  border: 1px solid LightGrey;
+  background: White;
+}
+
+form.trialForm input:hover,
+form.trialForm select:hover,
+form.trialForm textarea:hover,
+form.trialForm input:focus,
+form.trialForm select:focus,
+form.trialForm textarea:focus {
+  outline-width: 1px;
+  outline-style: solid;
+  border-width: 1px;
+  border-style: solid;
+}
+
+form.trialForm input:hover,
+form.trialForm select:hover,
+form.trialForm textarea:hover {
+  border-color: LightGrey;
+  outline-color: LightGrey;
+}
+
+form.trialForm input:focus,
+form.trialForm select:focus,
+form.trialForm textarea:focus {
+  border-color: #25d0b8;
+  outline-color: #25d0b8;
+}
+
+form.trialForm .FormError {
+  color: #c0392b;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+form.trialForm .ActionTray {
+  margin-top: 12px;
+}

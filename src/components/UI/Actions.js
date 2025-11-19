@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import Icon from "./Icons.js";
 import "./Actions.css";
 
-// Basic Action button (also exported as default)
 export function Action({ children, onClick, showText = false, buttonText }) {
   return (
     <button className="Action" onClick={onClick}>
@@ -55,6 +54,7 @@ Submit.propTypes = {
   onClick: PropTypes.func.isRequired,
   showText: PropTypes.bool,
   buttonText: PropTypes.string,
+  children: PropTypes.node,
 };
 
 Cancel.propTypes = Action.propTypes;
