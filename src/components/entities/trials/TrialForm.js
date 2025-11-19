@@ -10,7 +10,11 @@ const emptyTrial = {
   end_date: "",
 };
 
-export default function TrialForm({ initialTrial = emptyTrial } = {}) {
+export default function TrialForm({
+  onDismiss,
+  onSubmit,
+  initialTrial = emptyTrial,
+} = {}) {
   // Initialisation ---------------------------------------
   const isValid = {
     trial_name: (name) => name && name.length > 0,
@@ -66,8 +70,26 @@ export default function TrialForm({ initialTrial = emptyTrial } = {}) {
     setErrors(newErrors);
   };
 
-  const handleSubmit = (event) => {};
-  const handleCancel = (event) => {};
+  const isValidTrial = (trial) => {
+    let isTrialValid = true;
+    const newErrors = { ...errors };
+    Object.keys(emptyTrial).forEach((key) => {
+      const validator = isValid[key];
+      const value = trial[key];
+      const valid = validator ? validator(value, trial) : true;
+      newErrors[key] = valid ? null : errorMessages[key];
+      if (!valid) isTrialValid = false;
+    });
+    setErrors(newErrors);
+    return isTrialValid;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    isValidTrial(trial) && onSubmit(trial) && onDismiss();
+    setErrors({ ...errors });
+  };
+  const handleCancel = () => onDismiss();
 
   // View -------------------------------------------------
   return (
