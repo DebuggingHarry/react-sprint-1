@@ -32,6 +32,28 @@ function Plus() {
   );
 }
 
-Icon.Plus = Plus;
+function Tick() {
+  return (
+    <Icon className="IconTick">
+      <img
+        src="https://img.icons8.com/material-outlined/24/undefined/checkmark--v1.png"
+        alt="Tick icon"
+      />
+    </Icon>
+  );
+}
+function Cross() {
+  return (
+    <Icon className="IconCross">
+      <img
+        src="https://img.icons8.com/material-outlined/24/undefined/delete-sign.png"
+        alt="Cross icon"
+      />
+    </Icon>
+  );
+}
 
+Icon.Plus = Plus;
+Icon.Tick = Tick;
+Icon.Cross = Cross;
 export default Icon;

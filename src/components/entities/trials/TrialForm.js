@@ -1,5 +1,7 @@
 import { useState } from "react";
 import FormItem from "../../UI/Form.js";
+import { ActionTray, Submit, Cancel } from "../../UI/Actions.js";
+
 const emptyTrial = {
   trial_name: "",
   trial_status: "",
@@ -63,6 +65,9 @@ export default function TrialForm({ initialTrial = emptyTrial } = {}) {
 
     setErrors(newErrors);
   };
+
+  const handleSubmit = (event) => {};
+  const handleCancel = (event) => {};
 
   // View -------------------------------------------------
   return (
@@ -141,6 +146,11 @@ export default function TrialForm({ initialTrial = emptyTrial } = {}) {
           onChange={handleChange}
         />
       </FormItem>
+
+      <ActionTray>
+        <Submit onClick={handleSubmit} showText={true} buttonText="Submit" />
+        <Cancel onClick={handleCancel} showText={true} buttonText="Cancel" />
+      </ActionTray>
     </form>
   );
 }
