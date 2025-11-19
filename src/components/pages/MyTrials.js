@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import API from "../api/API.js";
-import Panel from "../UI/Panel.js";
+import TrialPanels from "../entities/trials/TrialPanels.js";
+import { ActionTray, Add } from "../UI/Actions.js";
+import TrialForm from "../entities/trials/TrialForm.js";
 
 function MyTrials() {
   // Initialisation --------------------------------------
@@ -11,9 +13,15 @@ function MyTrials() {
   const [loadingMessage, setLoadingMessage] = useState(
     "Loading your records..."
   );
+  const [showNewTrialForm, setShowNewTrialForm] = useState(false);
 
   // Context ---------------------------------------------
   // Methods ---------------------------------------------
+
+  const handleAdd = () => {
+    setShowNewTrialForm(true);
+  };
+
   const apiCall = async (endpoint) => {
     try {
       const response = await API.get(endpoint);
@@ -45,16 +53,13 @@ function MyTrials() {
       {trials.length === 0 ? (
         <p>You have no assigned trials.</p>
       ) : (
-        <Panel.Container>
-          {trials.map((trial) => (
-            <Panel
-              key={trial.trialId}
-              title={trial.trial_name}
-              level={1}
-            ></Panel>
-          ))}
-        </Panel.Container>
+        <TrialPanels trials={trials} />
       )}
+      <ActionTray>
+        <Add onClick={handleAdd} showText={true} buttonText="Add Trial" />
+      </ActionTray>
+
+      {showNewTrialForm && <TrialForm />}
     </section>
   );
 }
