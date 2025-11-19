@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Icon from "./Icons.js";
+import "./Actions.css";
 
 // Basic Action button (also exported as default)
 export function Action({ children, onClick, showText = false, buttonText }) {
