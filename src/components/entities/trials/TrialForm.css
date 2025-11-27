@@ -9,7 +9,7 @@ form.trialForm {
   gap: 20px;
 }
 
-form.trialForm .FormItem {
+form.trialForm .Item {
   width: 100%;
   display: flex;
   flex-direction: column;
