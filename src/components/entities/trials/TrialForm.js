@@ -87,8 +87,6 @@ export default function TrialForm({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Debug: log the trial object being submitted
-    console.log("Submitting trial object:", JSON.parse(JSON.stringify(trial)));
     isValidTrial(trial) && onSubmit(trial) && onDismiss();
     setErrors({ ...errors });
   };
