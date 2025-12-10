@@ -80,25 +80,24 @@ export default function TrialStaffForm({
       className="trialStaffForm"
     >
       <Form.Item
-        label="Trial ID"
-        htmlFor="trial_id"
-        advice="This trial ID is auto-filled"
+        label="Trial Name"
+        htmlFor="trial_name"
+        advice="This trial is auto-filled"
         error={errors.trial_id}
       >
         <input
           type="text"
-          name="trial_id"
-          id="trial_id"
-          placeholder="Trial ID"
-          value={trialStaff.trial_id}
-          onChange={handleChange}
+          id="trial_name"
+          placeholder="Trial Name"
+          value={trialStaff.trial_name ?? ""}
           readOnly
           disabled
         />
+        <input type="hidden" name="trial_id" value={trialStaff.trial_id} />
       </Form.Item>
 
       <Form.Item
-        label="User"
+        label="Staff Name"
         htmlFor="user_id"
         advice="Select a user"
         error={errors.user_id}
