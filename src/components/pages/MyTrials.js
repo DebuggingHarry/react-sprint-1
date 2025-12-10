@@ -12,6 +12,7 @@ function MyTrials() {
   const loggedInUser = 2001;
   const endpoint = `/trials/crc/${loggedInUser}`;
   const trialsEndpoint = `/trials`;
+  const staffEndpoint = `/trial-staff`;
 
   // State -----------------------------------------------
 
@@ -34,6 +35,11 @@ function MyTrials() {
     return response.isSuccess ? loadTrials(endpoint) || true : false;
   };
 
+  const handleAddStaff = async (staff) => {
+    const response = await API.post(staffEndpoint, staff);
+    return response.isSuccess ? loadTrials(endpoint) || true : false;
+  };
+
   // View ------------------------------------------------
   return (
     <section>
@@ -41,7 +47,7 @@ function MyTrials() {
       {trials.length === 0 ? (
         <p>You have no assigned trials.</p>
       ) : (
-        <TrialPanels trials={trials} />
+        <TrialPanels trials={trials} onStaffSubmit={handleAddStaff} />
       )}
       <ActionTray>
         <Add
