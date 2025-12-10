@@ -15,6 +15,7 @@ export default function TrialStaffForm({
   onDismiss,
   onSubmit,
   initialTrialStaff = emptyTrialStaff,
+  trialName = "",
 } = {}) {
   // Initialisation ---------------------------------------
 
@@ -89,7 +90,7 @@ export default function TrialStaffForm({
           type="text"
           id="trial_name"
           placeholder="Trial Name"
-          value={trialStaff.trial_name ?? ""}
+          value={trialName}
           readOnly
           disabled
         />

@@ -62,9 +62,13 @@ export default function TrialPanels({ trials = [], onStaffSubmit }) {
             <TrialStaffForm
               onDismiss={() => toggleStaffForm(trial.trial_id)}
               onSubmit={handleStaffSubmit}
+              trialName={trial.trial_name}
               initialTrialStaff={{
                 trial_id: trial.trial_id,
-                trial_name: trial.trial_name,
+                start_date: trial.start_date
+                  ? trial.start_date.split("T")[0]
+                  : "",
+                end_date: trial.end_date ? trial.end_date.split("T")[0] : "",
               }}
             />
           )}
