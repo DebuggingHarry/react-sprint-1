@@ -39,6 +39,7 @@ function MyTrials() {
     const response = await API.post(staffEndpoint, staff);
     return response.isSuccess ? loadTrials(endpoint) || true : false;
   };
+  
 
   // View ------------------------------------------------
   return (
@@ -47,7 +48,7 @@ function MyTrials() {
       {trials.length === 0 ? (
         <p>You have no assigned trials.</p>
       ) : (
-        <TrialPanels trials={trials} onStaffSubmit={handleAddStaff} />
+        <TrialPanels trials={trials} reloadTrials={() => loadTrials(trialsEndpoint)} onStaffSubmit={handleAddStaff} />
       )}
       <ActionTray>
         <Add

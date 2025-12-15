@@ -1,0 +1,72 @@
+
+
+div.ModalOverlay {
+  /* Appearance */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(60, 60, 60, 0.7);
+
+  /* Positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+main.ModalPane {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+}
+
+main.ModalPane header {
+  /* Appearance */
+  width: 100%;
+  height: 50px;
+  padding: 10px 50px;
+  color: white;
+  font-size: 100%;
+  border-radius: 5px 5px 0 0;
+  background-color: var(--color-green);
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main.ModalPane main.ModalContent {
+  /* Appearance */
+  width: 100%;
+  padding: 10px;
+  color: black;
+  font-size: 100%;
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main.ModalPane main.ModalContent > p {
+  text-align: center;
+}
+
+main.ModalPane div.ModalActions {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  /* Position */
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+}

@@ -4,6 +4,7 @@ const API = {};
 API.get = (endpoint) => callFetch(endpoint, "GET");
 API.post = (endpoint, dataObject) => callFetch(endpoint, "POST", dataObject);
 API.put = (endpoint, dataObject) => callFetch(endpoint, "PUT", dataObject);
+API.patch = (endpoint, dataObject) => callFetch(endpoint, "PATCH", dataObject);
 API.delete = (endpoint) => callFetch(endpoint, "DELETE");
 
 const callFetch = async (endpoint, method, dataObject) => {
@@ -24,13 +25,27 @@ const callFetch = async (endpoint, method, dataObject) => {
   try {
     const endpointAddress = API_URL + endpoint;
     const response = await fetch(endpointAddress, requestObject);
-    const result = await response.json();
-    return response.status >= 200 && response.status < 300
-      ? { isSuccess: true, result: result }
-      : {
-          isSuccess: false,
-          Message: `Error recovering records: ${response.status}`,
-        };
+
+    let payload = null;
+    try {
+      payload = await response.json();
+    } catch (e) {
+      try {
+        payload = await response.text();
+      } catch (e2) {
+        payload = null;
+      }
+    }
+
+    if (response.status >= 200 && response.status < 300) {
+      return { isSuccess: true, result: payload };
+    }
+
+    return {
+      isSuccess: false,
+      Message: `HTTP ${response.status} ${response.statusText}`,
+      details: payload,
+    };
   } catch (error) {
     return { isSuccess: false, Message: error.message };
   }

@@ -101,9 +101,14 @@ function useForm(
     return isRecordValid;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    isValidRecord(record) && onSubmit(record) && onDismiss();
+    if (isValidRecord(record)) {
+      const result = await onSubmit(record);
+      if (result) {
+        onDismiss();
+      }
+    }
     setErrors({ ...errors });
   };
 

@@ -42,6 +42,20 @@ Add.propTypes = {
   buttonText: PropTypes.string,
 };
 
+export function Remove({ onClick, showText = false, buttonText = "Remove" }) {
+  return (
+    <Action buttonText={buttonText} onClick={onClick} showText={showText}>
+      <Icon.Minus />
+    </Action>
+  );
+}
+
+Remove.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  showText: PropTypes.bool,
+  buttonText: PropTypes.string,
+};
+
 export function Submit({ onClick, showText = false, buttonText = "Submit" }) {
   return (
     <Action buttonText={buttonText} onClick={onClick} showText={showText}>
@@ -66,5 +80,61 @@ export function Cancel({ onClick, showText = false, buttonText = "Cancel" }) {
     </Action>
   );
 }
+
+export function Modify({ onClick, showText = false, buttonText = "Modify" }) {
+  return (
+    <Action buttonText={buttonText} onClick={onClick} showText={showText}>
+      <Icon.Modify />
+    </Action>
+  );
+}
+
+Modify.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  showText: PropTypes.bool,
+  buttonText: PropTypes.string,
+};
+
+export function Delete({ onClick, showText = false, buttonText = "Delete" }) {
+  return (
+    <Action buttonText={buttonText} onClick={onClick} showText={showText}>
+      <Icon.Delete />
+    </Action>
+  );
+}
+
+Delete.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  showText: PropTypes.bool,
+  buttonText: PropTypes.string,
+};
+
+export function Yes({ onClick, showText = false, buttonText = "Yes" }) {
+  return (
+    <Action buttonText={buttonText} onClick={onClick} showText={showText}>
+      <Icon.Yes />
+    </Action>
+  );
+}
+
+Yes.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  showText: PropTypes.bool,
+  buttonText: PropTypes.string,
+};
+
+export function No({ onClick, showText = false, buttonText = "No" }) {
+  return (
+    <Action buttonText={buttonText} onClick={onClick} showText={showText}>
+      <Icon.No />
+    </Action>
+  );
+}
+
+No.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  showText: PropTypes.bool,
+  buttonText: PropTypes.string,
+};
 
 export default Action;

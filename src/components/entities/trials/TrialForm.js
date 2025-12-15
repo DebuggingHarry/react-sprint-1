@@ -13,18 +13,24 @@ export default function TrialForm({
   onDismiss,
   onSubmit,
   initialTrial = emptyTrial,
+  isEditing = false,
 } = {}) {
   // Initialisation ---------------------------------------
 
   const validation = {
     isValid: {
       trial_name: (name) => name && name.length > 0,
-      trial_status: (status) => ["Draft", "Active", "Closed"].includes(status),
+      trial_status: (status) => {
+        const normalized = (status || "").trim().toLowerCase();
+        return ["draft", "active", "closed"].includes(normalized);
+      },
       trial_description: (val) => val && val.toString().trim().length > 0,
       start_date: (val) => {
         if (!val) return false;
         const start = new Date(val);
-        return !isNaN(start.getTime()) && start.getTime() > Date.now();
+        if (isNaN(start.getTime())) return false;
+       
+        return isEditing ? true : start.getTime() > Date.now();
       },
       end_date: (val, trialObj) => {
         if (!val) return false;
@@ -32,14 +38,15 @@ export default function TrialForm({
         const start = new Date(trialObj.start_date);
         if (isNaN(end.getTime())) return false;
         if (!trialObj.start_date || isNaN(start.getTime())) return false;
-        return end.getTime() > start.getTime();
+        
+        return isEditing ? end.getTime() >= start.getTime() : end.getTime() > start.getTime();
       },
     },
     errorMessages: {
       trial_name: "Trial name is required.",
       trial_status: "Status must be one of: Draft, Active or Closed.",
       trial_description: "Description is required.",
-      start_date: "Start date must be in the future.",
+      start_date: isEditing ? "Start date is required." : "Start date must be in the future.",
       end_date: "End date must be after the start date.",
     },
   };

@@ -83,7 +83,7 @@ export default function TrialStaffForm({
       <Form.Item
         label="Trial Name"
         htmlFor="trial_name"
-        advice="This trial is auto-filled"
+        advice="Selected trial"
         error={errors.trial_id}
       >
         <input
